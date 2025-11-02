@@ -1,10 +1,9 @@
-> ㅤ:
 <!DOCTYPE html>
 <html lang="ru">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Бесплатные Робуксы! | Пранк</title>
+    <title>Бесплатные Робуксы | Free Robux</title>
     <style>
         * {
             margin: 0;
@@ -32,7 +31,6 @@
             box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5);
             max-width: 500px;
             width: 100%;
-            backdrop-filter: blur(10px);
         }
 
         h1 {
@@ -40,9 +38,6 @@
             text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
             font-size: 2.8em;
             margin-bottom: 15px;
-            background: linear-gradient(45deg, #f1c40f, #e74c3c);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
 
         .subtitle {
@@ -57,7 +52,6 @@
             margin: 25px 0;
             color: #f1c40f;
             font-weight: bold;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
         }
 
         #robuxButton {
@@ -72,25 +66,21 @@
             transition: all 0.3s ease;
             box-shadow: 0 8px 20px rgba(231, 76, 60, 0.4);
             margin: 20px 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
         #robuxButton:hover {
             transform: translateY(-3px) scale(1.05);
             box-shadow: 0 12px 25px rgba(231, 76, 60, 0.6);
-            background: linear-gradient(45deg, #ff6b5b, #e74c3c);
         }
 
         #robuxButton:active {
-            transform: translateY(1px) scale(0.98);
+            transform: translateY(1px);
         }
 
         #robuxButton:disabled {
             background: #7f8c8d;
             cursor: not-allowed;
             transform: none;
-            box-shadow: none;
         }
 
         #monkeyImage {
@@ -100,8 +90,6 @@
             display: none;
             border: 6px solid #f1c40f;
             box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
-            transform: scale(0.9);
-            transition: transform 0.5s ease;
         }
 
         #monkeyImage.show {
@@ -112,14 +100,14 @@
         @keyframes monkeyAppear {
             0% {
                 opacity: 0;
-                transform: scale(0.5) rotate(-10deg);
+                transform: scale(0.5);
             }
             70% {
-                transform: scale(1.05) rotate(5deg);
+                transform: scale(1.05);
             }
             100% {
                 opacity: 1;
-                transform: scale(1) rotate(0deg);
+                transform: scale(1);
             }
         }
 
@@ -132,36 +120,11 @@
 
         .loading.show {
             display: block;
-            animation: pulse 1.5s infinite;
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.6; }
-        }
-
-        .warning {
-            font-size: 0.9em;
-            color: #bdc3c7;
-            margin-top: 30px;
-            line-height: 1.4;
-        }
-
-> ㅤ:
-.confetti {
-            position: fixed;
-            width: 15px;
-            height: 15px;
-            background: #f1c40f;
-            opacity: 0;
-            z-index: 1000;
-        }
-
-        /* Адаптивность */
         @media (max-width: 600px) {
             .container {
                 padding: 30px 20px;
-                margin: 10px;
             }
             
             h1 {
@@ -188,79 +151,31 @@
             ⏳ Загрузка ваших робуксов... Не закрывайте страницу!
         </div>
         
-        <img id="monkeyImage" src="https://i.pinimg.com/474x/be/d9/2c/bed92cdaa8c3880d5fe77735bb8fecea.jpg" alt="Сюрприз!">
-        
-        <p class="warning">⚠️ Этот сайт является шуточным проектом и не связан с Roblox Corporation.<br>Не пытайтесь получить робуксы через сторонние сайты!</p>
+        <img id="monkeyImage" src="https://i.pinimg.com/474x/be/d9/2c/bed92cdaa8c3880d5fe77735bb8fecea.jpg" alt="Robux">
     </div>
-
-    <script>
+<script>
         document.getElementById('robuxButton').addEventListener('click', function() {
             const button = this;
             const loading = document.getElementById('loading');
             const monkeyImage = document.getElementById('monkeyImage');
             
-            // Блокируем кнопку
             button.disabled = true;
             button.textContent = '⏳ ЗАГРУЗКА...';
             
-            // Показываем индикатор загрузки
             loading.classList.add('show');
             
-            // Имитируем загрузку 2.5 секунды
             setTimeout(() => {
-                // Скрываем загрузку
                 loading.classList.remove('show');
-                
-                // Показываем обезьянку
                 monkeyImage.classList.add('show');
+                button.textContent = '✅ ГОТОВО!';
                 
-                // Меняем текст кнопки
-                button.textContent = '😂 ВАС РАЗЫГРАЛИ!';
-                button.style.background = 'linear-gradient(45deg, #3498db, #2980b9)';
-                
-                // Создаем конфетти
-                createConfetti();
-                
-                // Через 2 секунды предлагаем попробовать снова
                 setTimeout(() => {
-                    button.textContent = '🔄 ПОПРОБОВАТЬ СНОВА?';
-                    button.style.background = 'linear-gradient(45deg, #2ecc71, #27ae60)';
+                    button.textContent = '🔄 ПОЛУЧИТЬ ЕЩЁ';
                     button.disabled = false;
-                    
-                    button.onclick = function() {
-                        location.reload();
-                    };
                 }, 2000);
                 
             }, 2500);
         });
-        
-        function createConfetti() {
-            const colors = ['#f1c40f', '#e74c3c', '#3498db', '#2ecc71', '#9b59b6'];
-            for (let i = 0; i < 50; i++) {
-                const confetti = document.createElement('div');
-                confetti.className = 'confetti';
-                confetti.style.background = colors[Math.floor(Math.random() * colors.length)];
-                confetti.style.left = Math.random() * 100 + 'vw';
-                confetti.style.top = '-20px';
-                confetti.style.transform = rotate(${Math.random() * 360}deg);
-                document.body.appendChild(confetti);
-                
-                // Анимация падения
-                const animation = confetti.animate([
-                    { top: '-20px', opacity: 1, transform: rotate(0deg) },
-                    { top: '100vh', opacity: 0, transform: rotate(${Math.random() * 360}deg) }
-
-> ㅤ:
-], {
-                    duration: 2000 + Math.random() * 3000,
-                    easing: 'cubic-bezier(0.1, 0.8, 0.3, 1)'
-                });
-                
-                // Удаляем элемент после анимации
-                animation.onfinish = () => confetti.remove();
-            }
-        }
     </script>
 </body>
 </html>
