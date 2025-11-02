@@ -1,1 +1,164 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Бесплатные Робуксы! | Free Robux</title>
+    <style>
+        body {
+            font-family: 'Arial Rounded MT Bold', 'Arial', sans-serif;
+            background: linear-gradient(to bottom, #2ecc71, #27ae60);
+            color: white;
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
 
+        .container {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 30px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            max-width: 600px;
+            width: 90%;
+        }
+
+        h1 {
+            color: #f1c40f;
+            text-shadow: 2px 2px 4px #000000;
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #ecf0f1;
+        }
+
+        .robux-counter {
+            font-size: 1.5em;
+            margin: 20px 0;
+            color: #f1c40f;
+        }
+
+        #robuxButton {
+            background: linear-gradient(to bottom, #e74c3c, #c0392b);
+            color: white;
+            border: none;
+            padding: 20px 40px;
+            font-size: 1.5em;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            margin: 20px 0;
+        }
+
+        #robuxButton:hover {
+            transform: scale(1.05);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            background: linear-gradient(to bottom, #ff6b5b, #e74c3c);
+        }
+
+        #robuxButton:active {
+            transform: scale(0.98);
+        }
+
+        #monkeyImage {
+            max-width: 100%;
+            border-radius: 15px;
+            margin-top: 25px;
+            display: none;
+            border: 5px solid #f1c40f;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+        }
+
+        .warning {
+            font-size: 0.9em;
+            color: #bdc3c7;
+            margin-top: 30px;
+        }
+
+        .loading {
+            display: none;
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+            100% { transform: scale(1); }
+        }
+
+        .pulse {
+            animation: pulse 0.5s ease-in-out;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🎁 БЕСПЛАТНЫЕ РОБУКСЫ! 🎁</h1>
+        <p class="subtitle">Получи 10000 бесплатных робуксов прямо сейчас! Без скачивания, без опросов!</p>
+        
+        <div class="robux-counter">10000 Robux</div>
+        
+        <button id="robuxButton">ЗАБРАТЬ РОБУКСЫ!</button>
+        
+        <div class="loading" id="loading">
+            ⏳ Загрузка ваших робуксов... Не закрывайте страницу!
+        </div>
+        
+        <img id="monkeyImage" src="https://i.pinimg.com/474x/be/d9/2c/bed92cdaa8c3880d5fe77735bb8fecea.jpg" alt="Обезьянка">
+        
+        <p class="warning">Этот сайт не связан с Roblox Corporation. Шуточный проект.</p>
+    </div>
+
+    <script>
+        document.getElementById('robuxButton').addEventListener('click', function() {
+            // Показываем загрузку
+            const loading = document.getElementById('loading');
+            const button = this;
+            const monkeyImage = document.getElementById('monkeyImage');
+            
+            // Делаем кнопку неактивной
+            button.disabled = true;
+button.textContent = 'ЗАГРУЗКА...';
+            
+            // Показываем анимацию загрузки
+            loading.style.display = 'block';
+            
+            // Имитируем загрузку перед показом обезьянки
+            setTimeout(function() {
+                // Скрываем загрузку
+                loading.style.display = 'none';
+                
+                // Показываем обезьянку
+                monkeyImage.style.display = 'block';
+                
+                // Добавляем анимацию пульсации
+                monkeyImage.classList.add('pulse');
+                
+                // Меняем текст кнопки
+                button.textContent = 'ОБМАНУЛИ! 😂';
+                
+                // Делаем кнопку снова активной (для перезагрузки страницы, например)
+                setTimeout(function() {
+                    button.disabled = false;
+                    button.textContent = 'ПОПРОБОВАТЬ СНОВА?';
+                    button.onclick = function() {
+                        location.reload();
+                    };
+                }, 1500);
+                
+            }, 2000); // Задержка в 2 секунды для "загрузки"
+        });
+    </script>
+</body>
+</html>
