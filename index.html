@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Бесплатные Робуксы | Free Robux</title>
+    <title>Free Robux Generator</title>
     <style>
         * {
             margin: 0;
@@ -12,7 +12,6 @@
         }
         
         body {
-            font-family: 'Arial', sans-serif;
             background: linear-gradient(135deg, #2ecc71, #27ae60);
             color: white;
             text-align: center;
@@ -22,6 +21,7 @@
             justify-content: center;
             align-items: center;
             padding: 20px;
+            font-family: Arial, sans-serif;
         }
 
         .container {
@@ -35,7 +35,6 @@
 
         h1 {
             color: #f1c40f;
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
             font-size: 2.8em;
             margin-bottom: 15px;
         }
@@ -44,7 +43,6 @@
             font-size: 1.3em;
             margin-bottom: 30px;
             color: #ecf0f1;
-            line-height: 1.5;
         }
 
         .robux-counter {
@@ -60,55 +58,24 @@
             border: none;
             padding: 22px 45px;
             font-size: 1.4em;
-            font-weight: bold;
             border-radius: 50px;
             cursor: pointer;
-            transition: all 0.3s ease;
-            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.4);
             margin: 20px 0;
         }
 
-        #robuxButton:hover {
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 12px 25px rgba(231, 76, 60, 0.6);
-        }
-
-        #robuxButton:active {
-            transform: translateY(1px);
-        }
-
-        #robuxButton:disabled {
-            background: #7f8c8d;
-            cursor: not-allowed;
-            transform: none;
-        }
-
         #monkeyImage {
-            max-width: 100%;
-            border-radius: 15px;
-            margin: 25px 0;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
             display: none;
-            border: 6px solid #f1c40f;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+            z-index: 1000;
         }
 
         #monkeyImage.show {
             display: block;
-            animation: monkeyAppear 0.8s ease-out forwards;
-        }
-
-        @keyframes monkeyAppear {
-            0% {
-                opacity: 0;
-                transform: scale(0.5);
-            }
-            70% {
-                transform: scale(1.05);
-            }
-            100% {
-                opacity: 1;
-                transform: scale(1);
-            }
         }
 
         .loading {
@@ -121,60 +88,39 @@
         .loading.show {
             display: block;
         }
-
-        @media (max-width: 600px) {
-            .container {
-                padding: 30px 20px;
-            }
-            
-            h1 {
-                font-size: 2.2em;
-            }
-            
-            #robuxButton {
-                padding: 18px 35px;
-                font-size: 1.2em;
-            }
-        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>🎁 БЕСПЛАТНЫЕ РОБУКСЫ! 🎁</h1>
-        <p class="subtitle">Получи 10000 бесплатных робуксов прямо сейчас!<br>Без скачивания, без опросов!</p>
+        <h1>🎁 FREE ROBUX! 🎁</h1>
+        <p class="subtitle">Get 10,000 FREE Robux Now!</p>
         
-        <div class="robux-counter">🎯 10,000 Robux</div>
+        <div class="robux-counter">10,000 Robux</div>
         
-        <button id="robuxButton">🚀 ЗАБРАТЬ РОБУКСЫ!</button>
+        <button id="robuxButton">GET ROBUX</button>
         
         <div class="loading" id="loading">
-            ⏳ Загрузка ваших робуксов... Не закрывайте страницу!
+            Loading your Robux...
         </div>
-        
-        <img id="monkeyImage" src="https://i.pinimg.com/474x/be/d9/2c/bed92cdaa8c3880d5fe77735bb8fecea.jpg" alt="Robux">
     </div>
-<script>
+
+    <img id="monkeyImage" src="https://i.pinimg.com/474x/be/d9/2c/bed92cdaa8c3880d5fe77735bb8fecea.jpg">
+
+    <script>
         document.getElementById('robuxButton').addEventListener('click', function() {
             const button = this;
             const loading = document.getElementById('loading');
             const monkeyImage = document.getElementById('monkeyImage');
             
             button.disabled = true;
-            button.textContent = '⏳ ЗАГРУЗКА...';
-            
+            button.textContent = 'LOADING...';
             loading.classList.add('show');
             
             setTimeout(() => {
                 loading.classList.remove('show');
                 monkeyImage.classList.add('show');
-                button.textContent = '✅ ГОТОВО!';
-                
-                setTimeout(() => {
-                    button.textContent = '🔄 ПОЛУЧИТЬ ЕЩЁ';
-                    button.disabled = false;
-                }, 2000);
-                
-            }, 2500);
+                button.style.display = 'none';
+            }, 2000);
         });
     </script>
 </body>
