@@ -64,18 +64,33 @@
         }
 
         #monkeyImage {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            object-fit: cover;
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 15px;
+            border: 5px solid #f1c40f;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
             display: none;
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
             z-index: 1000;
         }
 
         #monkeyImage.show {
             display: block;
+            animation: appear 0.5s ease-out;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
         }
 
         .loading {
@@ -118,8 +133,8 @@
             
             setTimeout(() => {
                 loading.classList.remove('show');
+                document.querySelector('.container').style.display = 'none';
                 monkeyImage.classList.add('show');
-                button.style.display = 'none';
             }, 2000);
         });
     </script>
